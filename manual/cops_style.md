@@ -2604,6 +2604,7 @@ end
 # good
 class Foo
   attr_reader :foo
+  private :foo
 
   def initialize
     @foo = "bar"
@@ -2617,13 +2618,14 @@ end
 # good
 class Foo
   attr_accessor :foo
+  private :foo
 
   def initialize
     @foo = "bar"
   end
 
   def instance_method
-    foo = "baz"
+    self.foo = "baz"
   end
 end
 ```
